@@ -1,0 +1,26 @@
+.header {
+    height: 50px;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(7,17,27,.1);
+    // background-color: red;
+    .header-nav {
+        width: 40%;
+        list-style-type: none;
+        li {
+            text-align: center;
+            width: 25%;
+            float: left;
+            padding-top: 5px;
+        }
+    }
+    .header-icon {
+        list-style-type: none;
+        float: right;
+        width: 20%;
+        li {
+            width: 33%;
+            float: left;
+            font-size: 20px;
+        }
+    }
+}
