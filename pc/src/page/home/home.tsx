@@ -21,7 +21,7 @@ class Home extends React.Component<StoreState> {
     // const { languageName } = this.props;
     return (
       <div className="heme">
-        <Carousel effect="fade">
+        <Carousel effect="fade" autoplay={true}>
           {
             this.imgUrl.map((item, index) => {
               return <img src={item} key={index} width="100%" alt="" />
