@@ -13,6 +13,7 @@ const Topic = r => require.ensure([], () => r(require('../page/topic/topic.vue')
 const Detail = r => require.ensure([], () => r(require('../page/detail/index.vue')), 'detail')
 const CourseDetail = r => require.ensure([], () => r(require('../page/detail/course.vue')), 'CourseDetail')
 const TeacherDetail = r => require.ensure([], () => r(require('../page/detail/teacher.vue')), 'TeacherDetail')
+const CommunityDetail = r => require.ensure([], () => r(require('../page/communityDetail/communityDetail.vue')), 'communityDetail')
 const Video = r => require.ensure([], () => r(require('../page/video/video.vue')), 'video')
 Vue.use(Router)
 
@@ -49,6 +50,11 @@ const routes = [
         path: 'community',
         name: 'community',
         component: Community
+      },
+      {
+        path: 'CommunityDetail',
+        name: 'CommunityDetail',
+        component: CommunityDetail
       },
       {
         path: 'person',

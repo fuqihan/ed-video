@@ -1,12 +1,12 @@
 <template>
   <div class="classification">
     <div class="classification-nav">
-      <span v-for="item,index in classifi" :style="{color: item.active}"
+      <span  v-for="item,index in classifi" :style="{color: item.active}"
             @click="onClassifi(item._id,index)">{{item.name}}</span>
     </div>
     <div class="classification-center">
       <loading :show="loadingShow" :text="loadingText" style="font-size: 12px"></loading>
-      <classification-list key="item._id" :item="item" v-for="item in classifiList"></classification-list>
+      <classification-list :key="item._id" :item="item" v-for="item in classifiList"></classification-list>
     </div>
   </div>
 </template>

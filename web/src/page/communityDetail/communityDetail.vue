@@ -1,5 +1,5 @@
 <template>
-  <div class="community-list" @click="$router.push('CommunityDetail')">
+  <div class="community-list">
     <img src="http://climg.mukewang.com/59030cc50001144806000338.jpg" alt="">
     <span class="community-list-name">符启晗</span>
     <span class="community-list-date">最后回复: 1天前</span>

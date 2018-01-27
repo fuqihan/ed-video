@@ -4,12 +4,12 @@
       <div ref="communityNavList" class="community-nav-list"
            :style="communityNavListStyle.info?communityNavListStyle: 0">
         <div class="list">全部</div>
-        <div class="list" v-for="item in 10">前端学习</div>
+        <div class="list" :key="item" v-for="item in 10">前端学习</div>
       </div>
       <div class="community-nav-more" @click="navMore">{{communityNavListStyle.info ? '查看更多' : '收起'}}></div>
     </div>
     <div class="community-center">
-      <community-list key="item" v-for="item in 6"></community-list>
+      <community-list :key="item" v-for="item in 6"></community-list>
     </div>
   </div>
 </template>
