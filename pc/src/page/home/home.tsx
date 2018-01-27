@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { StoreState } from '../../redux/type';
 import { Carousel } from 'antd';
+import { Link } from 'react-router-dom';
 import './home.scss'
 
 class Home extends React.Component<StoreState> {
@@ -20,7 +21,7 @@ class Home extends React.Component<StoreState> {
   render() {
     // const { languageName } = this.props;
     return (
-      <div className="heme">
+      <div className="home">
         <Carousel effect="fade" autoplay={true}>
           {
             this.imgUrl.map((item, index) => {
@@ -28,7 +29,16 @@ class Home extends React.Component<StoreState> {
             })
           }
         </Carousel>
+        <div className="home-popular">
+          <div className="home-popular-header">
+            <span>热门课程</span>
+            <Link  to="/index">查看更多 ></Link>
+          </div>
+          <div className="home-popular-center">
+            {/* <course-list key="item" : item="item" v-for="item in popularCourses"></course-list> */}
+        </div>
       </div>
+      </div >
     );
   }
 }
