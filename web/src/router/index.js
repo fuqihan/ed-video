@@ -52,7 +52,7 @@ const routes = [
         component: Community
       },
       {
-        path: 'CommunityDetail',
+        path: 'communityDetail',
         name: 'CommunityDetail',
         component: CommunityDetail
       },
