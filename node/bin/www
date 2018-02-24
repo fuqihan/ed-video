@@ -7,6 +7,9 @@
 var app = require('../app');
 var debug = require('debug')('mydemo:server');
 var http = require('http');
+var https = require('https');
+var fs = require('fs');
+var path = require('path'); 
 
 /**
  * Get port from environment and store in Express.
@@ -16,10 +19,19 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
+ * Create HTTPs server.
+ */
+var privateKey = fs.readFileSync(path.join(__dirname, './2_www.fuqihan.cn.key'), 'utf8');
+var certificate = fs.readFileSync(path.join(__dirname, './1_www.fuqihan.cn_bundle.crt'), 'utf8');
+var credentials = { key: privateKey, cert: certificate };
+
+
+/**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+// var server = http.createServer(app);
+var server = https.createServer(credentials, app);
 
 /**
  * Listen on provided port, on all network interfaces.
