@@ -6,7 +6,7 @@
       <router-link to="home"><i class="icon iconfont icon-home"></i><span>主页</span></router-link>
       <router-link :to="'classification'"><i
         class="icon iconfont icon-fenlei"></i><span>分类</span></router-link>
-      <router-link to="topic"><i class="icon iconfont icon-laoshi"></i><span>题目</span></router-link>
+      <!-- <router-link to="topic"><i class="icon iconfont icon-laoshi"></i><span>题目</span></router-link> -->
       <router-link to="community"><i class="icon iconfont icon-comiisredian"></i><span>社区</span></router-link>
       <router-link to="person"><i class="icon iconfont icon-gerenzhongxin"></i><span>个人</span></router-link>
     </div>

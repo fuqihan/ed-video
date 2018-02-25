@@ -1,7 +1,7 @@
 <template>
   <div class="classification">
     <div class="classification-nav">
-      <span  v-for="item,index in classifi" :style="{color: item.active}"
+      <span  v-for="(item,index) in classifi" :key="index" :style="{color: item.active}"
             @click="onClassifi(item._id,index)">{{item.name}}</span>
     </div>
     <div class="classification-center">
@@ -70,7 +70,7 @@
       overflow-y: scroll;
       min-height: 100vh;
       max-height: 100vh;
-      span {
+      > span {
         display: block;
         width: 100%;
         height: 1rem;

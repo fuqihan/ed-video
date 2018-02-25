@@ -34,7 +34,7 @@
           <div style="width: 100%;text-align: center;font-size: 20px">
             <span>课程列表</span>
           </div>
-          <course-list :key="index" :courseLists="item" v-for="item,index in coursesItem.courseLists"></course-list>
+          <course-list :key="index" :courseLists="item" v-for="(item,index) in coursesItem.courseLists"></course-list>
         </div>
         <div class="detail-course-center-content-teacher" ref="detailCourseTeacher">
           <img :src="author.imageUrl" alt="">
@@ -61,7 +61,7 @@
 
 <script>
   import courseList from '../../components/courseItemList.vue'
-  import reviewList from './child/reviewList.vue'
+  import reviewList from '../../components/reviewList.vue'
   import api from '../../api/index'
   import {base64, Rater} from 'vux'
 

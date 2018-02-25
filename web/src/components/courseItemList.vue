@@ -4,7 +4,7 @@
       <span class="name">{{courseLists.name}}</span>
       <icon type="download" class="bottom-icon"></icon>
     </div>
-    <div v-for="item,index in courseLists.child" class="detail-course-list-child">
+    <div v-for="(item,index) in courseLists.child" :key="index" class="detail-course-list-child">
       <span class="index">{{'0'+(index +1)}}</span>
       <span class="name">{{item.name}}</span>
       <span class="time">3:00</span>
@@ -18,9 +18,6 @@
     props: ['courseLists'],
     components: {
       Icon
-    },
-    mounted() {
-      console.log(this.$props.courseLists)
     }
   }
 </script>
