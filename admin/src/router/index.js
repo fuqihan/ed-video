@@ -118,17 +118,17 @@ const router = new Router({
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  if (!store.state.login) {
-    if (to.path !== '/login') {
-      console.log(to)
-      next({path: '/login'})
-    } else {
-      next()
-    }
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if (!store.state.login) {
+//     if (to.path !== '/login') {
+//       console.log(to)
+//       next({path: '/login'})
+//     } else {
+//       next()
+//     }
+//   } else {
+//     next()
+//   }
+// })
 
 export default router
