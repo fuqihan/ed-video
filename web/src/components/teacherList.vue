@@ -1,9 +1,9 @@
 <template>
   <div class="teacher-list" @click="onDetail">
-    <span class="teacher-list-name">{{item.name}}</span>
-    <span class="teacher-list-sort">{{item.title}}</span>
-    <p class="teacher-list-info">{{item.intro}}</p>
-    <img class="teacher-list-avatar" :src="item.imageUrl" alt="">
+    <span class="teacher-list-name">{{$props.item.name}}</span>
+    <span class="teacher-list-sort">{{$props.item.title}}</span>
+    <p class="teacher-list-info">{{$props.item.intro}}</p>
+    <img class="teacher-list-avatar" :src="$props.item.imageUrl" alt="">
   </div>
 </template>
 
@@ -11,7 +11,19 @@
   import {base64} from 'vux'
 
   export default {
-    props: ['item'],
+    props: {
+    item: {
+      type: Object,
+      default: function () {
+        return {
+            imageUrl: '',
+            name: '',
+            intro: '',
+            title: ''
+            }
+         }
+      }
+    },
     methods: {
       onDetail() {
         this.$router.push('/detail/teacher/' + base64.encode(this.$props.item._id))

@@ -1,5 +1,5 @@
 <template>
-  <el-menu theme="dark" :default-active="deActiive" class="el-menu-vertical-demo aaa"
+  <el-menu background-color="#545c64" text-color="#fff" :default-active="deActiive" class="el-menu-vertical-demo aaa"
            :collapse="isCollapse" router>
     <el-menu-item index="/index/home">
       <i class="el-icon-setting"></i>
@@ -12,7 +12,7 @@
       </template>
       <el-menu-item index="/index/person/findPerson">查看用户</el-menu-item>
       <el-menu-item index="/index/person/addPerson">添加用户</el-menu-item>
-      <el-menu-item index="/index/person/distributionPerson">用户分布</el-menu-item>
+      <!-- <el-menu-item index="/index/person/distributionPerson">用户分布</el-menu-item> -->
     </el-submenu>
     <el-submenu index="courses">
       <template slot="title">
@@ -31,7 +31,7 @@
       <el-menu-item index="/index/teacher/findTeacher">查看教师</el-menu-item>
       <el-menu-item index="/index/teacher/addTeacher">添加教师</el-menu-item>
     </el-submenu>
-    <el-submenu index="5">
+    <!-- <el-submenu index="5">
       <template slot="title">
         <i class="el-icon-message"></i>
         <span slot="title">活动管理</span>
@@ -42,7 +42,7 @@
     <el-menu-item index="6">
       <i class="el-icon-setting"></i>
       <span slot="title">支付记录</span>
-    </el-menu-item>
+    </el-menu-item> -->
   </el-menu>
 </template>
 

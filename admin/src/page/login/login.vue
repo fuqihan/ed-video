@@ -58,7 +58,7 @@
       handleLogin() {
         if (this.loginForm.username.trim() === 'admin' && this.loginForm.password.trim() === '123456') {
           this.$store.dispatch('loginInfo', true)
-          this.$router.push({name: 'index'})
+          this.$router.push({name: '默认'})
         }
       }
     }

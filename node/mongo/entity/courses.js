@@ -8,7 +8,7 @@ module.exports = {
     imageUrl: String,
     intro: String,
     editorContent: String,
-    cliicCount: {type: Number, default: 0},  //点击量
+    cliickCount: {type: Number, default: 0},  //点击量
     buyCount: {type: Number, default: 0},  //购买数
     courseLists: Array,
     active: {type: Boolean, default: false},

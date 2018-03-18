@@ -45,7 +45,10 @@ export default {
     }
     .community-datail-header-bottom {
       border-top: 1px solid black;
+      border-bottom: 1px solid black;
       .community-datail-header-bottom-left {
+        padding-top: 6px;
+        padding-left: 5px;
         float: left;
         img {
           display: block;
@@ -57,6 +60,8 @@ export default {
           display: block;
           float: left;
           font-size: 12px;
+          padding-top: 12px;
+          padding-left: 10px;
         }
       }
       .community-datail-header-bottom-right {

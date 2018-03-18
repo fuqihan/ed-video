@@ -4,7 +4,7 @@
       <div ref="communityNavList" class="community-nav-list"
            :style="communityNavListStyle.info?communityNavListStyle: 0">
         <div class="list">全部</div>
-        <div class="list" :key="item" v-for="item in 10">前端学习</div>
+        <div class="list" :key="item.name" v-for="item in classifi">{{item.name}}</div>
       </div>
       <div class="community-nav-more" @click="navMore">{{communityNavListStyle.info ? '查看更多' : '收起'}}></div>
     </div>
@@ -16,6 +16,7 @@
 
 <script>
   import communityList from './child/communityList.vue'
+  import api from '../../api/index'
   export default {
     data() {
       return {
@@ -23,7 +24,8 @@
           overflow: 'hidden',
           height: '1.6rem',
           info: true
-        }
+        },
+        classifi: []
       }
     },
     components: {
@@ -33,6 +35,11 @@
       navMore() {
         this.communityNavListStyle.info = !this.communityNavListStyle.info
       }
+    },
+    mounted() {
+      api.classifications.findClassifications().then((data) => {
+        this.classifi = data.data.data
+      })
     }
   }
 </script>

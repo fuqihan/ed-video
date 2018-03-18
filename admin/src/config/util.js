@@ -1,4 +1,4 @@
-export const localhostUrl = 'https:/www.fuqihan.cn:3000/node/'
+export const localhostUrl = 'https://www.fuqihan.cn:3000/node'
 export const localhostImgUrl = 'http://120.25.240.196:3000'
 // export const locaUrl = 'https:/www.fuqihan.cn:3000/node/'
 export function dataURItoBlob(base64Data) {

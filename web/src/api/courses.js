@@ -9,7 +9,13 @@ import * as util from '../config/util'
 export function findCourses(id) {
   return axios.get(util.locaUrl + 'courses/findCourses?id=' + id)
 }
-
+/*
+* Get
+* 用于搜索查找课程
+* */
+export function findSearchCourses(obj) {
+  return axios.get(util.locaUrl + 'courses/courses', {params: obj})
+}
 /*
 * Get
 * 用于主页查找热门课程

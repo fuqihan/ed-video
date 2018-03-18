@@ -4,10 +4,10 @@
       <f-swiper :listImg="listImg" :sTime="5000" sHeight="2.3rem"></f-swiper>
     </div>
     <div class="home-nav">
-      <router-link to="/login"><i class="icon icon-color iconfont icon-gaokao"></i><span>高考</span></router-link>
-      <router-link to="/login"><i class="icon icon-color iconfont icon-jisuanji"></i><span>计算机</span></router-link>
-      <router-link to="/login"><i class="icon icon-color  iconfont icon-waiyu"></i><span>外语</span></router-link>
-      <router-link to="/login"><i class="icon icon-color iconfont icon-jineng"></i><span>技能</span></router-link>
+      <router-link to="/theme/1"><i class="icon icon-color iconfont icon-gaokao"></i><span>高考</span></router-link>
+      <router-link to="/theme/2"><i class="icon icon-color iconfont icon-jisuanji"></i><span>计算机</span></router-link>
+      <router-link to="/theme/3"><i class="icon icon-color  iconfont icon-waiyu"></i><span>外语</span></router-link>
+      <router-link to="/theme/4"><i class="icon icon-color iconfont icon-jineng"></i><span>技能</span></router-link>
     </div>
     <div class="home-popular">
       <div class="home-popular-header">
@@ -15,7 +15,7 @@
         <router-link to="/">查看更多 ></router-link>
       </div>
       <div class="home-popular-center">
-        <course-list key="item" :item="item" v-for="item in popularCourses"></course-list>
+        <course-list :key="item._id" :item="item" v-for="item in popularCourses"></course-list>
       </div>
     </div>
     <div class="home-teacher">
@@ -24,7 +24,7 @@
         <router-link to="/">查看更多</router-link>
       </div>
       <div class="home-teacher-center">
-        <teacher-list :item="item" v-for="item,index in likeTeacher" :key="index"></teacher-list>
+        <teacher-list :item="item" v-for="item in likeTeacher" :key="item._id"></teacher-list>
       </div>
     </div>
     <div class="home-like">

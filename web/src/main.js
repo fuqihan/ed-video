@@ -7,6 +7,7 @@ import store from './store'
 import infiniteScroll from 'vue-infinite-scroll'
 import App from './App.vue'
 import './style/iconfont.css'
+import './style/pc.less'
 
 Vue.use(infiniteScroll)
 

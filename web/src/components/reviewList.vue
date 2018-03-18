@@ -1,9 +1,9 @@
 <template>
-  <div class="community-list">
+  <div class="review-list">
     <img src="http://climg.mukewang.com/59030cc50001144806000338.jpg" alt="">
-    <span class="community-list-name">符启晗</span>
-    <span class="community-list-date">最后回复: 1天前</span>
-    <span class="community-list-center">史上最牛逼标题史上最牛逼标题史上最牛逼标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题</span>
+    <span class="review-list-name">符启晗</span>
+    <span class="review-list-date">最后回复: 1天前</span>
+    <span class="review-list-center">史上最牛逼标题史上最牛逼标题史上最牛逼标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题</span>
   </div>
 </template>
 
@@ -13,7 +13,7 @@
 </script>
 
 <style lang="less">
-  .community-list {
+  .review-list {
     height: 3rem;
     border-bottom: 1px solid #e8e8e8;
     position: relative;
@@ -25,19 +25,19 @@
       top: .1rem;
       left: .4rem;
     }
-    .community-list-name {
+    .review-list-name {
       font-size: 16px;
       position: absolute;
       top: .21rem;
       left: 1.22rem;
     }
-    .community-list-date {
+    .review-list-date {
       font-size: 14px;
       position: absolute;
       right: .4rem;
       top: .22rem;
     }
-    .community-list-center {
+    .review-list-center {
       width: 90%;
       /*height: 1.2rem;*/
       font-size: 12px;

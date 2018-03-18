@@ -25,26 +25,26 @@
         </el-table-column>
 
         <el-table-column width="180px" align="center" label="时间">
-          <template scope="scope">
+          <template slot-scope="scope">
             <span>{{scope.row.createDate | parseTime }}</span>
           </template>
         </el-table-column>
 
         <el-table-column align="center" min-width="250px" label="个人简介">
-          <template scope="scope">
+          <template slot-scope="scope">
             <span>{{scope.row.intro}}</span>
           </template>
         </el-table-column>
 
         <el-table-column width="150px" align="center" label="账号">
-          <template scope="scope">
+          <template slot-scope="scope">
             <span class="link-type" @click="handleUpdate(scope.row)">{{scope.row.name}}</span>
           </template>
         </el-table-column>
 
 
         <el-table-column width="180px" align="center" label="关注数">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-rate
               v-model="scope.row.rmb"
               disabled
@@ -56,19 +56,19 @@
         </el-table-column>
 
         <el-table-column align="center" label="课程数" width="95">
-          <template scope="scope">
+          <template slot-scope="scope">
             <span>{{scope.row.pageviews}}</span>
           </template>
         </el-table-column>
 
         <el-table-column class-name="status-col" align="center" label="状态" width="100">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-tag>{{scope.row.active ? "可使用" : "不可使用"}}</el-tag>
           </template>
         </el-table-column>
 
         <el-table-column align="center" label="操作" width="100">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-button v-if="scope.row.active!=true" size="small" @click="handleModifyStatus(scope.row)">激活
             </el-button>
             <el-button v-if="scope.row.active!=false" size="small" type="danger"

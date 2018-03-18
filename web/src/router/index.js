@@ -15,6 +15,8 @@ const CourseDetail = r => require.ensure([], () => r(require('../page/detail/cou
 const TeacherDetail = r => require.ensure([], () => r(require('../page/detail/teacher.vue')), 'TeacherDetail')
 const CommunityDetail = r => require.ensure([], () => r(require('../page/communityDetail/communityDetail.vue')), 'communityDetail')
 const Video = r => require.ensure([], () => r(require('../page/video/video.vue')), 'video')
+const Search = r => require.ensure([], () => r(require('../page/search/search.vue')), 'search')
+const Theme = r => require.ensure([], () => r(require('../page/theme/theme.vue')), 'theme')
 Vue.use(Router)
 
 const routes = [
@@ -62,6 +64,16 @@ const routes = [
         component: Person
       }
     ]
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: Search
+  },
+  {
+    path: '/theme/:url',
+    name: 'theme',
+    component: Theme
   },
   {
     path: '/login',
