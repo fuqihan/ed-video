@@ -32,7 +32,11 @@ var credentials = { key: privateKey, cert: certificate };
 
 // var server = http.createServer(app);
 var server = https.createServer(credentials, app);
-
+var io = app.io;
+io.attach(server);
+// io.set('transports', ['websocket', 'xhr-polling', 'jsonp-polling', 'htmlfile', 'flashsocket']);
+// io.set('origins', '*');
+require('../socket')(io);
 /**
  * Listen on provided port, on all network interfaces.
  */

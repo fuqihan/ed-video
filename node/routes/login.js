@@ -18,11 +18,10 @@ function _interopRequireWildcard(obj) {
         return newObj;
     }
 }
-
-
+var returnRouter = function(io) {
 //  微博获取AccrssToken 微博又jssdk可以直接获取token直接请求就行了
 router.get('/getWeiboAccessToken', function (req, res, next) {
-    console.log(req.query)
+    var socketid = req.query.state;
     if(!req.query.code) {
         return res.json('登陆失败')
     }
@@ -42,7 +41,9 @@ router.get('/getWeiboAccessToken', function (req, res, next) {
             }
             res.cookie('WeiboAccessToken',JSON.parse(body).access_token)
             res.cookie('WeiboUid',JSON.parse(body).uid)
-            res.json('登陆成功！返回上一个窗口继续')
+            io.to(socketid).emit('loginOff', true);
+            res.end();
+            // res.json('登陆成功！返回上一个窗口继续')
           });
     } catch (error) {
         console.log(error)
@@ -72,8 +73,17 @@ router.get('/getWbUserInfo',function(req, res, next){
     }
 })
 
+router.get('/test', function(req, res, next) {
+    console.log(io)
+    res.cookie('BaiduAccessToken','123')
+    io.local.emit('newa', 'my lovely babies');
+    res.redirect('/views/close.html');
+    // res.json({a: 1233});
+})
+
 //  百度获取AccrssToken 百度没有jssdk需要放在cookie上
 router.get('/getBaiduAccessToken', function (req, res, next) {
+    var socketid = req.query.state;
     if(!req.query.code) {
         return res.json('登陆失败')
     }
@@ -87,7 +97,9 @@ router.get('/getBaiduAccessToken', function (req, res, next) {
             // res.writeHead(200,{'Content-Type':'text/html;charset=utf-8'})
             res.cookie('BaiduAccessToken',JSON.parse(body).access_token)
             // res.setHeader('Set-Cookie', [ 'BaiduAccessToken='+body.access_token])
-                        res.json('登陆成功！返回上一个窗口继续')
+                        // res.json('登陆成功！返回上一个窗口继续')
+            io.to(socketid).emit('loginOff', true);
+            res.end();
           });
     } catch (error) {
         console.log(error)
@@ -117,5 +129,7 @@ router.get('/getBaiduUserInfo',function(req, res, next){
         })
     }
 })
+return router;
+}
 
-module.exports = router;
+module.exports = returnRouter;

@@ -3,7 +3,7 @@ module.exports = function (app) {
         res.redirect('/node/');
     });
     app.use('/node/', require('./home'));
-    app.use('/node/login', require('./login'));
+    app.use('/node/login', require('./login')(app.io));
     app.use('/node/user', require('./user'));
     app.use('/node/classifications', require('./classifications'));
     app.use('/node/courses', require('./courses'));
