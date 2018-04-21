@@ -39,6 +39,7 @@ router.get('/getWeiboAccessToken', function (req, res, next) {
             if (err) {
               return console.error('upload failed:', err);
             }
+            console.log(JSON.parse(body))
             res.cookie('WeiboAccessToken',JSON.parse(body).access_token)
             res.cookie('WeiboUid',JSON.parse(body).uid)
             io.to(socketid).emit('loginOff', true);
