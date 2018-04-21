@@ -3,6 +3,7 @@ var router = express.Router();
 var request = require('request');
 //  === import * as config from '../config/config'
 var _config = require('../config/config');
+var persons = require('../mongo/mongo.js').persons;
 var config = _interopRequireWildcard(_config);
 function _interopRequireWildcard(obj) {
     if (obj && obj.__esModule) {
@@ -56,14 +57,22 @@ router.get('/getWbUserInfo',function(req, res, next){
     var tokenUrl = 'https://api.weibo.com/2/users/show.json?access_token='+req.query.accessToken+'&uid='+req.query.uid
     try {
         request.get(tokenUrl, function optionalCallback(err, httpResponse, body) {
+            var obj = JSON.parse(body);
             if (err) {
               res.json({
                   ret: false
               })
             }
+            persons.create({
+                name: obj.name,
+                username: obj.id,
+                imageUrl: obj.cover_image_phone,
+                intro: obj.description,
+            }, function (err, persons) {
+            })
             res.json({
                 ret: true,
-                data: JSON.parse(body)
+                data: obj
             })
           });
     } catch (error) {
