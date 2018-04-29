@@ -19,11 +19,11 @@
         <el-option label="其他" value="3"></el-option>
       </el-select>
     </el-form-item>
-    <el-form-item label="地区" prop="areaRules">
+    <!-- <el-form-item label="地区" prop="areaRules">
       <v-distpicker :province="form.address.province.value" :area="form.address.area.value"
                     :city="form.address.city.value" @selected="changeArea"></v-distpicker>
       <el-input v-model="form.areaRules" style="display: none"></el-input>
-    </el-form-item>
+    </el-form-item> -->
     <el-form-item label="激活">
       <el-switch on-text="" off-text="" v-model="form.active"></el-switch>
     </el-form-item>

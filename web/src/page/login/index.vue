@@ -9,16 +9,16 @@
     <div class='login-center'>
       <div id="wb_connect_btn" style="display: none"></div>
       <span class='button' @click='onWeibo'>
-        <icon type='cancel' style='margin: 0 .5rem 0 -1rem'></icon>
+        <!-- <icon type='cancel' style='margin: 0 .5rem 0 -1rem'></icon> -->
         微博登录
       </span>
       <span class='button' @click='onBaidu'>
-        <icon type='cancel' style='margin: 0 .5rem 0 -1rem'></icon>
+        <!-- <icon type='cancel' style='margin: 0 .5rem 0 -1rem'></icon> -->
         百度登录
       </span>
       <span class='button' @click='onLogin'>
-        <icon type='cancel' style='margin: 0 .5rem 0 -1rem'></icon>
-        qq登录(不可用)
+        <!-- <icon type='cancel' style='margin: 0 .5rem 0 -1rem'></icon> -->
+        qq登录
       </span>
     </div>
     <confirm v-model="show"
