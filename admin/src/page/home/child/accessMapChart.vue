@@ -170,12 +170,6 @@ const option = {
 export default {
   mounted() {
     let myChart = this.$echarts.init(this.$refs.courseChart);
-    this.$nextTick(function() {
-      axios.get("http://oxw83yoit.bkt.clouddn.com/map/china.json").then(res => {
-        this.$echarts.registerMap("china", res.data);
-        myChart.setOption(option);
-      });
-    });
   }
 };
 </script>
