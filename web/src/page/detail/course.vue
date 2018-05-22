@@ -246,7 +246,7 @@ export default {
         },
 
         payment: function(data, actions) {
-          if (_that.$store.state.loginInfo) {
+          if (!_that.$store.state.loginInfo) {
             _that.$store.commit("LOGIN_BEFORE", _that.$route.path);
             return _that.$router.push({ name: "login" });
           } else {
