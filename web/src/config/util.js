@@ -1,6 +1,6 @@
 // export const locaUrl = 'http://120.25.240.196:3000/'
-// export const locaUrl = 'https://www.fuqihan.cn:3000/node/'
-export const locaUrl = 'http://localhost:3000/node/'
+export const locaUrl = 'https://www.fuqihan.cn:3000/node/'
+// export const locaUrl = 'http://localhost:3000/node/'
 
 export function getCookie(cName) {
   if (document.cookie.length > 0) {

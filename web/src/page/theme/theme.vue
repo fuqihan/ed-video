@@ -13,10 +13,10 @@ export default {
     data() {
         return {
             themeData: [
-                'http://img.ui.cn/data/file/0/4/7/1188740.png?imageMogr2/auto-orient/format/jpg/strip/quality/90/',
-                'http://img.ui.cn/data/file/2/4/8/1393842.png?imageMogr2/auto-orient/format/jpg/strip/thumbnail/!1800%3E/quality/90/',
-                'http://img.ui.cn/data/file/2/8/2/401282.jpg?imageMogr2/auto-orient/format/jpg/strip/quality/90/',
-                'http://img.ui.cn/data/file/4/0/5/245504.jpg?imageMogr2/auto-orient/format/jpg/strip/quality/90/'
+                'http://ed-video-1252875234.file.myqcloud.com/5fe3515cd0e9edc8d5b1dbee2b600152.jpg',
+                'http://ed-video-1252875234.file.myqcloud.com/9e0fe5de536f24c2bead7e9e8a8585cc.jpg',
+                'http://ed-video-1252875234.coscd.myqcloud.com/03fc3690fd988dd6c99828997caaedca.jpg',
+                'http://ed-video-1252875234.file.myqcloud.com/7b68cc28cd8498a0776fa43d075704b2.jpg'
               ]
         }
     },
