@@ -1,11 +1,11 @@
 <template>
   <div class="community-datail">
-     <div class="f-home-theme-header-icon"  @click="$router.push({name: 'community'})">
+     <div class="home-theme-header-icon"  @click="$router.push({name: 'community'})">
         <icon type='cancel'></icon>
       </div>
     <div class="community-datail-header">
-        <div class="community-datail-header-title">你热爱编程吗</div>
-        <div class="community-datail-header-center">你热爱编程吗</div>
+        <div class="community-datail-header-title">{{talkObj.title}}</div>
+        <div class="community-datail-header-center">{{talkObj.intro}}</div>
         <div class="community-datail-header-bottom">
           <div class="community-datail-header-bottom-left">
             <img src="http://tva2.sinaimg.cn/crop.0.0.100.100.50/005Txlymjw8enrjx569wrj302s02sa9x.jpg" alt="">
@@ -17,24 +17,48 @@
           <div style="clear: both"></div>
         </div>
     </div>
-    <review-list :key="item" v-for="item in 10"></review-list>
+    <review-list :talk="item" :key="index" v-for="(item, index) in courseTalks"></review-list>
+    <loading style="font-size: 12px" :show="loading"></loading>
   </div>
 </template>
 
 <script>
 import { XButton } from "vux";
 import reviewList from "../../components/reviewList.vue";
-import { Icon } from "vux";
+import { Icon, Loading } from "vux";
+import api from "../../api/index";
 export default {
   components: {
     XButton,
     reviewList,
-    Icon
+    Icon,
+    Loading
+  },
+  data() {
+    return {
+      loading: true,
+      courseTalks: [],
+      talkObj: {}
+    };
   },
   methods: {
     toSend() {
-      this.$router.push({ name: "inputModel" });
+       this.$router.push({
+        name: "inputModel",
+        params: {
+          id: this.$route.params.id,
+          type: 'talk'
+        }
+      });
     }
+  },
+  created() {
+    api.talk.findTalkDetail(this.$route.params.id).then(data => {
+      console.log(data.data)
+      this.talkObj = data.data.data;
+      this.courseTalks = data.data.courseTalks;
+      this.loading =false;
+    });
   }
 };
 </script>
@@ -152,10 +176,11 @@ export default {
     }
   }
 }
-.f-home-theme-header-icon {
+.home-theme-header-icon {
   z-index: 99;
   margin-top: -10px;
   margin-left: 5px;
+  margin-bottom: 10px;
   height: 20px;
   width: 20px;
 }

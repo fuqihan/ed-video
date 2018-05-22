@@ -1,15 +1,29 @@
 <template>
-  <div class="community-list" @click="$router.push('/communityDetail')">
-    <img src="http://climg.mukewang.com/59030cc50001144806000338.jpg" alt="">
-    <span class="community-list-name">符启晗</span>
-    <span class="community-list-date">最后回复: 1天前</span>
-    <span class="community-list-title">史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题</span>
-    <span class="community-list-center">史上最牛逼标题史上最牛逼标题史上最牛逼标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题史上最牛逼的标题</span>
+  <div class="community-list" @click="onCommunityDetail">
+    <img :src="data.person.imageUrl" alt="">
+    <span class="community-list-name">{{data.person.name}}</span>
+    <span class="community-list-date">{{data.createDate | parseTime }}</span>
+    <span class="community-list-title">{{data.title}}</span>
+    <span class="community-list-center">{{data.intro}}</span>
   </div>
 </template>
 
 <script>
-export default {};
+import * as filters from "../../../filters/filters";
+export default {
+  filters: {
+    parseTime: filters.parseTime
+  },
+  props: ["data"],
+  methods: {
+    onCommunityDetail() {
+      console.log(this.$props.data);
+      this.$router.push({
+        path: `/communityDetail${this.$props.data._id}`
+      });
+    }
+  }
+};
 </script>
 
 <style lang="less">
@@ -50,7 +64,7 @@ export default {};
   .community-list-center {
     width: 90%;
     height: 1.2rem;
-    font-size: 12px;
+    font-size: 18px;
     line-height: 0.4rem;
     color: #7b7b7b;
     overflow: hidden;

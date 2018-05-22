@@ -7,6 +7,6 @@ module.exports = {
     intro: String,//内容
     title: String,
     classification: {type: String, ref: 'classifications'},
-    user: {type: Schema.Types.ObjectId, ref: 'courses', unique: true},//外键，指向这个课程的作者
+    person: {type: Schema.Types.ObjectId, ref: 'persons', unique: true},//外键，指向这个课程的作者
     createDate: {type: Date, default: a},
 }

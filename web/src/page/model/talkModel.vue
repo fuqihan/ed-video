@@ -2,12 +2,16 @@
   <div class="text-model">
     <div style="height: 50px;">
    <div class="f-home-theme-header-icon" @click="$router.go(-1)">
+     
         <icon type='cancel'></icon>
       </div>
       <div class="text-model-right" @click="toSend">
         确定
       </div>
     </div>
+     <group>
+    <selector title="分类" :options="sort" v-model="classification"></selector>
+  </group>
        <group>
     <x-textarea  placeholder="标题" v-model="title"></x-textarea>
   </group>
@@ -18,45 +22,51 @@
 </template>
 
 <script>
-import { Icon, XTextarea, Group, base64 } from "vux";
+import { Icon, XTextarea, Group, base64, Selector } from "vux";
 import api from "../../api/index";
 export default {
   components: {
     Icon,
     XTextarea,
-    Group
+    Group,
+    Selector
   },
   data() {
     return {
       value: "",
-      title: ''
+      title: "",
+      sort: [],
+      classification: ""
     };
   },
   methods: {
     toSend() {
       let obj = {};
+      obj.title = this.title;
       obj.intro = this.value;
+      obj.classification = this.classification;
       obj.person = "5adadde467701e2b509e21fe";
-      this.$route.params.type === "talk"
-        ? (obj.talk = base64.decode(
-            this.$route.path.split("/")[1].substring(10)
-          ))
-        : (obj.course = base64.decode(
-            this.$route.path.split("/")[1].substring(10)
-          ));
-      api.courses.addCourseTalk(obj).then(data => {
-        this.$router.push(
-          `/detail/course/${this.$route.path.split("/")[1].substring(10)}`
-        );
+      api.talk.addTalk(obj).then(data => {
+        this.$router.push("/index/community");
       });
     },
     toBack() {
-      console.log(this.$route.params.data);
       this.$router.push({
         name: this.$route.params.url,
         params: this.$route.params.data
       });
     }
+  },
+  created() {
+    api.classifications.findClassifications().then(data => {
+      console.log(data.data.data);
+      data.data.data.forEach(item => {
+        this.sort.push({
+          key: item._id,
+          value: item.name
+        });
+      });
+    });
   }
 };
 </script>

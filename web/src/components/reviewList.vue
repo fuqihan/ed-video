@@ -1,6 +1,6 @@
 <template>
   <div class="review-list" @click="onDetail">
-    <img src="http://climg.mukewang.com/59030cc50001144806000338.jpg" alt="">
+    <img :src="talk.person.imageUrl" alt="">
     <span class="review-list-name">{{talk.person.name}}</span>
     <span class="review-list-date">{{talk.createDate | parseTime}}</span>
     <span class="review-list-center">{{talk.intro}}</span>

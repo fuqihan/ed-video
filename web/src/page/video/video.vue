@@ -2,13 +2,13 @@
   <div class="video">
     <div class="video-header">
       <span class="back" @click="$router.go(-1)"> < </span>
-      <span class="name">{{$route.params.name}}</span>
+      <span class="name">{{videoObj.name}}</span>
     </div>
-    <video controls	 src="http://ed-video-1252875234.file.myqcloud.com/m1424uaq0ls.10703.1.mp4"></video>
+    <video controls	 :src="videoUrl"></video>
   <div class="community-datail-header-bottom">
           <div class="community-datail-header-bottom-left">
-            <img :src="$route.params.author.imageUrl" alt="">
-            <span>{{$route.params.author.name}}</span>
+            <img :src="videoObj.author.imageUrl" alt="">
+            <span>{{videoObj.author.name}}</span>
           </div>
           <div class="community-datail-header-bottom-right">
              <span class="button" @click="toSend">立即评论</span> 
@@ -16,19 +16,31 @@
           <div style="clear: both"></div>
         </div>
     <div class="video-list">
-      <course-list :key="index" :courseLists="item" v-for="(item,index) in $route.params.courseLists"></course-list>
+      <course-list :videoUrl.sync="videoUrl" :key="index" :courseLists="item" v-for="(item,index) in videoObj.courseLists"></course-list>
     </div>
   </div>
 </template>
 
 <script>
 import courseList from "../../components/courseItemList.vue";
+import api from "../../api";
+import { base64 } from "vux";
 export default {
   components: {
     courseList
   },
+  data() {
+    return {
+      videoObj: {},
+      videoUrl: 'http://ed-video-1252875234.file.myqcloud.com/m1424uaq0ls.10703.1.mp4'
+    }
+  },
   created() {
-    console.log(this.$route);
+    api.courses
+      .findCoursesById(base64.decode(this.$route.params.id))
+      .then(data => {
+        this.videoObj = data.data.data
+      });
   },
   methods: {
     toSend() {
@@ -39,7 +51,7 @@ export default {
           data: this.$route.params
         }
       });
-    },
+    }
     // toBack() {
     //   this.$router.push(`/detail/course/${this.$route.path.split('/')[2]}`)
     //   console.log(this.$route);

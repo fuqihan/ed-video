@@ -65,7 +65,7 @@ const routes = [
     ]
   },
   {
-    path: '/communityDetail',
+    path: '/communityDetail:id',
     name: 'CommunityDetail',
     component: CommunityDetail
   },
@@ -105,7 +105,7 @@ const routes = [
     component: Register
   },
   {
-    path: '/video/:id',
+    path: '/video:id',
     name: 'video',
     component: Video
   },

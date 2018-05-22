@@ -3,7 +3,7 @@
     <div class="detail-course-list-master">
       <span class="name">{{courseLists.name}}</span>
     </div>
-    <div v-for="(item,index) in courseLists.child" :key="index" class="detail-course-list-child">
+    <div @click="aaa(item)" v-for="(item,index) in courseLists.child" :key="index" class="detail-course-list-child">
       <span class="index">{{'0'+(index +1)}}</span>
       <span class="name">{{item.name}}</span>
       <span class="time">3:00</span>
@@ -14,9 +14,14 @@
 <script>
   import {Icon} from 'vux'
   export default {
-    props: ['courseLists'],
+    props: ['courseLists', 'videoUrl'],
     components: {
       Icon
+    },
+    methods: {
+      aaa(item) {
+        this.$emit('update:videoUrl', item.url);
+      }
     }
   }
 </script>

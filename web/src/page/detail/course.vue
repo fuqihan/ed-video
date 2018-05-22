@@ -263,7 +263,7 @@ export default {
         },
 
         onCancel: function(data, actions) {
-          _that.$router.push({ name: "video", params: _that.coursesItem });
+          _that.$router.push({ name: "video" });
         },
 
         onAuthorize: function(data, actions) {

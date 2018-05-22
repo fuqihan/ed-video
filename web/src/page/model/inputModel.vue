@@ -1,7 +1,7 @@
 <template>
   <div class="text-model">
     <div style="height: 50px;">
-   <div class="f-home-theme-header-icon" @click="toBack">
+       <div class="f-home-theme-header-icon" @click="$router.go(-1)">
         <icon type='cancel'></icon>
       </div>
       <div class="text-model-right" @click="toSend">
@@ -34,14 +34,16 @@ export default {
       obj.intro = this.value;
       obj.person = "5adadde467701e2b509e21fe";
       this.$route.params.type === "talk"
-        ? (obj.talk = base64.decode(
-            this.$route.path.split("/")[1].substring(10)
-          ))
+        ? (obj.talk = this.$route.params.id)
         : (obj.course = base64.decode(
             this.$route.path.split("/")[1].substring(10)
           ));
       api.courses.addCourseTalk(obj).then(data => {
-        this.$router.push(
+         this.$route.params.type === "talk"
+        ? this.$router.push(
+          `/communityDetail${this.$route.params.id}`
+        )
+        : this.$router.push(
           `/detail/course/${this.$route.path.split("/")[1].substring(10)}`
         );
       });
