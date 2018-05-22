@@ -4,6 +4,9 @@
       <el-form-item label="课程名称" prop="name">
         <el-input v-model="form.name"></el-input>
       </el-form-item>
+        <el-form-item label="课程价格" prop="price">
+        <el-input v-model="form.price"></el-input>
+      </el-form-item>
       <el-form-item label="作者" prop="author">
         <el-select v-model="form.author" filterable placeholder="请选择">
           <el-option
@@ -132,6 +135,7 @@
               courseLists: this.form.courseLists,
               author:  this.form.author,//外键，指向这个课程的作者
               classification: this.form.classification,
+              price: this.form.price
             })
           } else {
             console.log('error submit!!');
