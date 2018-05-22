@@ -2,7 +2,6 @@
   <div class="detail-course-list">
     <div class="detail-course-list-master">
       <span class="name">{{courseLists.name}}</span>
-      <icon type="download" class="bottom-icon"></icon>
     </div>
     <div v-for="(item,index) in courseLists.child" :key="index" class="detail-course-list-child">
       <span class="index">{{'0'+(index +1)}}</span>
@@ -48,6 +47,7 @@
       width: 100%;
       height: .5rem;
       line-height: .5rem;
+      margin-top: 10px;
       & > .index {
         margin-left: .6rem;
       }

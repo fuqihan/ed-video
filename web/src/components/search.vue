@@ -13,6 +13,7 @@
   export default {
     methods: {
       onNNoActive() {
+        this.$store.commit('SEARCH_ROUTER', this.$route.path)
         this.$router.push({name: 'search'})
       }
     }

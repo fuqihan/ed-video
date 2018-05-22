@@ -9,4 +9,5 @@ module.exports = function (app) {
     app.use('/node/courses', require('./courses'));
     app.use('/node/teacher', require('./teacher'));
     app.use('/node/person', require('./person'));
+    app.use('/node/talk', require('./talk'));
 };

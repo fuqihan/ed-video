@@ -36,4 +36,5 @@ router.get('/homeFindPopularCourses', coursesModel.findPopularCourses, function 
     })
 })
 
+router.post('/addCourseTalk', coursesModel.addCourseTalk);
 module.exports = router;

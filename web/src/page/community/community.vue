@@ -11,6 +11,9 @@
     <div class="community-center">
       <community-list :key="item" v-for="item in 6"></community-list>
     </div>
+    <div class="community-create" @click="$router.push('/talkModel')">
+
+    </div>
   </div>
 </template>
 
@@ -77,5 +80,14 @@
     .community-center {
       width: 100%;
     }
+  }
+  .community-create {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: red;
+    position: fixed;
+    bottom: 1.4rem;
+    right: 30px;
   }
 </style>

@@ -10,9 +10,10 @@ module.exports = {
     editorContent: String,
     cliickCount: {type: Number, default: 0},  //点击量
     buyCount: {type: Number, default: 0},  //购买数
+    price: Number,
     courseLists: Array,
     active: {type: Boolean, default: false},
     author: {type: Schema.Types.ObjectId, ref: 'teachers',},//外键，指向这个课程的作者
-    classification: {type: Schema.Types.ObjectId, ref: 'classifications',},
+    classification: {type: Schema.Types.ObjectId, ref: 'classifications'},
     createDate: {type: Date, default: a},
 }

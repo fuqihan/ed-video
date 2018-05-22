@@ -17,6 +17,10 @@ const CommunityDetail = r => require.ensure([], () => r(require('../page/communi
 const Video = r => require.ensure([], () => r(require('../page/video/video.vue')), 'video')
 const Search = r => require.ensure([], () => r(require('../page/search/search.vue')), 'search')
 const Theme = r => require.ensure([], () => r(require('../page/theme/theme.vue')), 'theme')
+const TextModel = r => require.ensure([], () => r(require('../page/model/textModel.vue')), 'model')
+const InputModel = r => require.ensure([], () => r(require('../page/model/inputModel.vue')), 'model')
+const TalkModel = r => require.ensure([], () => r(require('../page/model/talkModel.vue')), 'model')
+
 Vue.use(Router)
 
 const routes = [
@@ -54,16 +58,31 @@ const routes = [
         component: Community
       },
       {
-        path: 'communityDetail',
-        name: 'CommunityDetail',
-        component: CommunityDetail
-      },
-      {
         path: 'person',
         name: 'person',
         component: Person
       }
     ]
+  },
+  {
+    path: '/communityDetail',
+    name: 'CommunityDetail',
+    component: CommunityDetail
+  },
+  {
+    path: '/textModel',
+    name: 'textModel',
+    component: TextModel
+  },
+  {
+    path: '/talkModel',
+    name: 'talkModel',
+    component: TalkModel
+  },
+  {
+    path: '/inputModel:id',
+    name: 'inputModel',
+    component: InputModel
   },
   {
     path: '/search',

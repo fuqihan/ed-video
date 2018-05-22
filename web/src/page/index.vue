@@ -43,6 +43,7 @@
   }
 
   .footer {
+    z-index: 99;
     width: 100%;
     background-color: #ffffff;
     height: 0.8rem;

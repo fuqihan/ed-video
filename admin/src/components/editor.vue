@@ -33,78 +33,91 @@
 </template>
 
 <script>
-  import lrz from 'lrz'
-  import * as util from '../config/util'
-  import api from '../api/index'
+import lrz from "lrz";
+import * as util from "../config/util";
+import api from "../api/index";
+import VueQuillEditor from "vue-quill-editor";
 
-  export default {
-    props: ['editorContent', 'editorContent', 'visible'],
-    data() {
-      return {
-        name: 'custom-toolbar-example',
-        content: '<h2>请为你的课程添加详细介绍吧</h2>',
-        someData: '',
-        editorOption: {
-          modules: {
-            toolbar: '#toolbar'
-          }
+export default {
+  components: {
+    quillEditor: VueQuillEditor
+  },
+  props: ["editorContent", "editorContent", "visible"],
+  data() {
+    return {
+      name: "custom-toolbar-example",
+      content: "<h2>请为你的课程添加详细介绍吧</h2>",
+      someData: "",
+      editorOption: {
+        modules: {
+          toolbar: "#toolbar"
         }
       }
+    };
+  },
+  methods: {
+    onEditorBlur() {},
+    onEditorFocus() {},
+    onEditorReady() {},
+    editorSub() {
+      this.$emit("update:editorContent", this.content);
+      this.$emit("update:visible", !this.$props.visible);
     },
-    methods: {
-      onEditorBlur() {
-      },
-      onEditorFocus() {
-      },
-      onEditorReady() {
-      },
-      editorSub() {
-        this.$emit('update:editorContent', this.content)
-        this.$emit('update:visible', !this.$props.visible)
-      },
-      pcLook() {
-        let p = '<html><head><title>电脑端效果</title><style>img {width: 100%;display: block}</style></head><body><div style="width: 640px;margin: 0 auto;border: 1px solid #000">' + this.content + '</div></body></html>';
-        let w = window.open('about:blank');
-        w.document.write(p);
-      },
-      webLook() {
-        let p = '<html><head><title>手机端效果</title><style>img {width: 100%;display: block}</style></head><body><div style="width: 320px;margin: 0 auto;border: 1px solid #000;min-height: 600px">' + this.content + '</div></body></html>';
-        let w = window.open('about:blank');
-        w.document.write(p);
-      },
-      customButtonClick() {
-        this.$refs.editorFile.click()
-      },
-      uploadImg(event) {
-        let _selt = this
-        let index = this.$refs.editor.quill.getSelection() !== null ? this.$refs.editor.quill.getSelection().index : 0
-        lrz(event.target.files[0])
-          .then(function (rst) {
-            // 处理成功会执行
-            let blob = util.dataURItoBlob(rst.base64)
-            let fd = new FormData()
-            fd.append("file", blob, 'image.blob')
-            api.upload.adminUpload(fd).then(data => {
-              _selt.$refs.editor.quill.insertEmbed(index, 'image', util.localhostImgUrl + data.data.data.replace(/\\/g, "/"))
-            })
-          })
-          .catch(function (err) {
-            // 处理失败会执行
-          })
-          .always(function () {
-            // 不管是成功失败，都会执行
-          })
-      }
+    pcLook() {
+      let p =
+        '<html><head><title>电脑端效果</title><style>img {width: 100%;display: block}</style></head><body><div style="width: 640px;margin: 0 auto;border: 1px solid #000">' +
+        this.content +
+        "</div></body></html>";
+      let w = window.open("about:blank");
+      w.document.write(p);
+    },
+    webLook() {
+      let p =
+        '<html><head><title>手机端效果</title><style>img {width: 100%;display: block}</style></head><body><div style="width: 320px;margin: 0 auto;border: 1px solid #000;min-height: 600px">' +
+        this.content +
+        "</div></body></html>";
+      let w = window.open("about:blank");
+      w.document.write(p);
+    },
+    customButtonClick() {
+      this.$refs.editorFile.click();
+    },
+    uploadImg(event) {
+      let _selt = this;
+      let index =
+        this.$refs.editor.quill.getSelection() !== null
+          ? this.$refs.editor.quill.getSelection().index
+          : 0;
+      lrz(event.target.files[0])
+        .then(function(rst) {
+          // 处理成功会执行
+          let blob = util.dataURItoBlob(rst.base64);
+          let fd = new FormData();
+          fd.append("file", blob, "image.blob");
+          api.upload.adminUpload(fd).then(data => {
+            _selt.$refs.editor.quill.insertEmbed(
+              index,
+              "image",
+              util.localhostImgUrl + data.data.data.replace(/\\/g, "/")
+            );
+          });
+        })
+        .catch(function(err) {
+          // 处理失败会执行
+        })
+        .always(function() {
+          // 不管是成功失败，都会执行
+        });
     }
   }
+};
 </script>
 
 <style lang="less">
-  .my-editor {
+.my-editor {
+}
 
-  }
-
-  .my-editor-btn {
-    margin-top: 20px;
-  }
+.my-editor-btn {
+  margin-top: 20px;
+}
 </style>

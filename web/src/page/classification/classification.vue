@@ -37,6 +37,7 @@
         this.classifi = data.data.data
         this.classifi[0].active = 'red'
         api.courses.findCourses(this.classifi[0]._id).then((coursesData) => {
+          console.log(coursesData.data)
           this.classifiList = coursesData.data.data
           this.loadingShow = false
         })
@@ -44,10 +45,12 @@
     },
     methods: {
       onClassifi(id, i) {
+        this.loadingShow = true
         let listChange = (item) => {
           item.active = 'red'
           api.courses.findCourses(item._id).then((coursesData) => {
             this.classifiList = coursesData.data.data
+            this.loadingShow = false
           })
         }
         this.classifi.map((item, index) => {

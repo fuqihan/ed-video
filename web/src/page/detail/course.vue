@@ -1,7 +1,7 @@
 <template>
   <div class="detail-course" v-show="detailCourseLoading">
     <div class="detail-course-header">
-      <div class="detail-course-back" @click="$router.go(-1)"> < </div>
+      <div class="detail-course-back" @click="toBack"> < </div>
       <img :src="coursesItem.imageUrl" alt="">
     </div>
     <div class="detail-course-center">
@@ -47,7 +47,7 @@
             <span>综合评价: </span>
             <rater v-model="reviewStar" :font-size="18" disabled></rater>
           </div>
-          <review-list :key="item" v-for="item in 10"></review-list>
+          <review-list :talk="item" :key="item" v-for="item in courseTalks"></review-list>
         </div>
       </div>
     </div>
@@ -78,7 +78,8 @@ export default {
             name: "",
             intro: "",
             editorContent: "",
-            courseLists: []
+            courseLists: [],
+            courseTalks: [],
           };
         }
       },
@@ -118,6 +119,9 @@ export default {
     reviewList
   },
   methods: {
+    toBack() {
+      this.$router.push(this.$store.state.afterRouter)
+    },
     onScrollTop(id) {
       switch (id) {
         case 1:
@@ -137,12 +141,14 @@ export default {
   },
   mounted() {
     htmlBody.scrollTop = 0;
+    let _that = this;
     api.courses
       .findCoursesById(base64.decode(this.$route.params.id))
       .then(data => {
         htmlBody.scrollTop = 0;
-        this.coursesItem = data.data.data[0];
-        this.author = data.data.data[0].author;
+        this.coursesItem = data.data.data;
+        this.author = data.data.data.author;
+        this.courseTalks = data.data.courseTalks;
         this.$refs.editorContent.innerHTML = this.coursesItem.editorContent;
         this.detailCourseLoading = true;
         setTimeout(() => {
@@ -240,19 +246,29 @@ export default {
         },
 
         payment: function(data, actions) {
-          return actions.payment.create({
-            payment: {
-              transactions: [
-                {
-                  amount: { total: "1.00", currency: "USD" }
-                }
-              ]
-            }
-          });
+          if (_that.$store.state.loginInfo) {
+            _that.$store.commit("LOGIN_BEFORE", _that.$route.path);
+            return _that.$router.push({ name: "login" });
+          } else {
+            return actions.payment.create({
+              payment: {
+                transactions: [
+                  {
+                    amount: { total: "1.00", currency: "USD" }
+                  }
+                ]
+              }
+            });
+          }
+        },
+
+        onCancel: function(data, actions) {
+          _that.$router.push({ name: "video", params: _that.coursesItem });
         },
 
         onAuthorize: function(data, actions) {
           return actions.payment.execute().then(payment => {
+            console.log(123);
             // The payment is complete!
             // You can now show a confirmation message to the customer
             console.log(payment);

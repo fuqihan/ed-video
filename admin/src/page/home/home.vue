@@ -15,7 +15,7 @@
     <course-chart></course-chart>
     <activity-chart></activity-chart>
     <statistics-chart></statistics-chart>
-    <access-map-chart></access-map-chart>
+    <!-- <access-map-chart></access-map-chart> -->
   </div>
 </template>
 
@@ -23,14 +23,14 @@
   import courseChart from './child/courseChart.vue'
   import activityChart from './child/activityChart.vue'
   import statisticsChart from './child/statisticsChart.vue'
-  import accessMapChart from './child/accessMapChart.vue'
+  // import accessMapChart from './child/accessMapChart.vue'
 
   export default {
     components: {
       courseChart,
       activityChart,
       statisticsChart,
-      accessMapChart
+      // accessMapChart
     }
   }
 </script>

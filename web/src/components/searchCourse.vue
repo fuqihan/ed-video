@@ -23,6 +23,7 @@ export default {
   },
   methods: {
     onDetail() {
+      this.$store.commit('AFTER_ROUTER', this.$route.path)
       this.$router.push({
         path: '/detail/course/' + base64.encode(this.$props.item._id)
       })

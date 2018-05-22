@@ -12,6 +12,12 @@ export default {
   },
   [mutationTypes.LOGIN_BEFORE](state, data) {
     state.loginBefore = data
-  }
+  },
+  [mutationTypes.AFTER_ROUTER](state, data) {
+    state.afterRouter = data
+  },
+  [mutationTypes.SEARCH_ROUTER](state, data) {
+    state.searchRouter = data
+  },
 }
 

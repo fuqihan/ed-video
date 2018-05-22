@@ -31,3 +31,7 @@ export function findCoursesById(id) {
 export function findHomeCourses(obj) {
   return axios.get(util.locaUrl + 'courses/courses?page=' + obj.page + '&limit=' + obj.limit + "&reg=''")
 }
+
+export function addCourseTalk(obj) {
+  return axios.post(util.locaUrl + 'courses/addCourseTalk', obj)
+}

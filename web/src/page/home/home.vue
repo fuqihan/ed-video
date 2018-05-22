@@ -12,10 +12,10 @@
     <div class="home-popular">
       <div class="home-popular-header">
         <span>热门课程</span>
-        <router-link to="/">查看更多 ></router-link>
+        <router-link to="/index/classification">查看更多 ></router-link>
       </div>
       <div class="home-popular-center">
-        <course-list :key="item._id" :item="item" v-for="item in popularCourses"></course-list>
+        <course-list :key="index" :item="item" v-for="(item,index) in popularCourses"></course-list>
       </div>
     </div>
     <div class="home-teacher">
@@ -24,7 +24,7 @@
         <router-link to="/">查看更多</router-link>
       </div>
       <div class="home-teacher-center">
-        <teacher-list :item="item" v-for="item in likeTeacher" :key="item._id"></teacher-list>
+        <teacher-list :item="item" v-for="(item,index) in likeTeacher" :key="index"></teacher-list>
       </div>
     </div>
     <div class="home-like">
@@ -35,7 +35,7 @@
       </div>
       <div class="home-like-center" v-infinite-scroll="loadMore"
            infinite-scroll-disabled="busy" infinite-scroll-distance="10">
-        <course-list key="item" :item="item" v-for="item in homeCourses"></course-list>
+        <course-list :key="index" :item="item" v-for="(item,index) in homeCourses"></course-list>
         <loading style="font-size: 12px" :show="loading"></loading>
       </div>
       <div class="home-like-loading">

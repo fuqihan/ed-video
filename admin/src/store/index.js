@@ -1,7 +1,7 @@
 /**
  * Created by fuqihan on 2017/3/29.
  */
-import Vue from 'vue'
+// import Vue from 'vue'
 import Vuex from 'vuex'
 import mutations from './mutation'
 import actions from './actions'

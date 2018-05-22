@@ -12,7 +12,7 @@
     <div class="detail-teacher-course">
       <span class="name">课程</span>
       <div class="list">
-        <course-list key="item" v-for="item in 10"></course-list>
+        <course-list :key="item" v-for="item in 10"></course-list>
       </div>
     </div>
   </div>

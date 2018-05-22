@@ -65,7 +65,7 @@
         this.checkText = {name: this.menuCheck[key], key: key}
       },
       onActive() {
-        this.$router.go(-1)
+        this.$router.push(this.$store.state.searchRouter);
         this.searchText = ''
         this.searchEnter = false
       },

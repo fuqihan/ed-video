@@ -7,14 +7,11 @@ var bodyParser = require('body-parser');
 var winston = require('winston');
 var expressWinston = require('express-winston');
 var cors = require('cors');//跨域
-var io = require('socket.io')();
 // var multer = require('multer');//上传
 
 var routes = require('./routes');
 var index = require('./routes/index');
 var app = express();
-
-app.io = io;
 // view engine setups
 app.set('views', path.join(__dirname, './views/'));
 app.set('view engine', 'html');

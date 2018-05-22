@@ -18,6 +18,7 @@ const teachersEntity = require('./entity/teachers.js')//教师表
 const classificationsEntity = require('./entity/classifications.js')//教师表
 const courseTalksEntity = require('./entity/courseTalks')//课程评论表
 const tokensEntity = require('./entity/tokens')//课程评论表
+const talk = require('./entity/talk')//课程评论表
 
 db.on('error', console.error.bind(console, '连接错误：'))
 db.once('open', (callback) => {
@@ -30,6 +31,7 @@ const teachersSchema = new Schema(teachersEntity)
 const classificationsSchema = new Schema(classificationsEntity)
 const courseTalksSchema = new Schema(courseTalksEntity)
 const tokensSchema = new Schema(tokensEntity)
+const talkSchema = new Schema(talk)
 
 // 创建model
 const persons = mongoose.model('persons', personsSchema, 'persons') // newClass为创建或选中的集合,第三个参数为实际表名
@@ -38,6 +40,7 @@ const teachers = mongoose.model('teachers', teachersSchema, 'teachers')
 const classifications = mongoose.model('classifications', classificationsSchema, 'classifications')
 const courseTalks = mongoose.model('courseTalks', courseTalksSchema, 'courseTalks')
 const tokens = mongoose.model('tokens', tokensSchema, 'tokens')
+const talks = mongoose.model('talks', talkSchema, 'talks')
 
 module.exports = {
     persons,
@@ -45,5 +48,6 @@ module.exports = {
     teachers,
     classifications,
     courseTalks,
-    tokens
+    tokens,
+    talks
 }

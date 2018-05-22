@@ -6,12 +6,8 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import echarts from 'echarts'
-import VueQuillEditor from 'vue-quill-editor'
-import 'element-ui/lib/theme-chalk/index.css'
-// import './style/theme/index.css'
 
 Vue.use(ElementUI)
-Vue.use(VueQuillEditor)
 Vue.prototype.$echarts = echarts
 
 Vue.config.productionTip = false

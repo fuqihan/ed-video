@@ -6,11 +6,13 @@ import router from './router'
 import store from './store'
 import infiniteScroll from 'vue-infinite-scroll'
 import App from './App.vue'
+import { AlertPlugin } from 'vux'
+Vue.use(AlertPlugin)
 import './style/iconfont.css'
 import './style/pc.less'
 
 Vue.use(infiniteScroll)
-
+Vue.use(AlertPlugin)
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false
