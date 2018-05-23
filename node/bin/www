@@ -30,8 +30,8 @@ var credentials = { key: privateKey, cert: certificate };
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
-// var server = https.createServer(credentials, app);
+// var server = http.createServer(app);
+var server = https.createServer(credentials, app);
 // io.set('transports', ['websocket', 'xhr-polling', 'jsonp-polling', 'htmlfile', 'flashsocket']);
 // io.set('origins', '*');
 /**
