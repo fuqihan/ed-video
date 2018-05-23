@@ -34,9 +34,9 @@
 <script>
   import {Icon, Confirm} from 'vux'
   import * as util from '../../config/util'
-  import io from 'socket.io-client'
+  // import io from 'socket.io-client'
 
-  const socket = io.connect('https://www.fuqihan.cn:3000/');
+  // const socket = io.connect('https://www.fuqihan.cn:3000/');
   // const socket = io.connect('localhost:3000/');
   export default {
     components: {
@@ -63,18 +63,18 @@
           this.loginShow = true
         }
       }
-      socket.on('loginOff', function(data) {
-        this.outhHtml.close()
-        this.$store.commit('LOGIN_INFO', true)
-        this.$router.push({name})
-      })
+      // socket.on('loginOff', function(data) {
+      //   this.outhHtml.close()
+      //   this.$store.commit('LOGIN_INFO', true)
+      //   this.$router.push({name})
+      // })
     },
     methods: {
       loginCel() {
         this.$router.go(-1)
       },
       onWeibo() {
-        this.outhHtml = window.open(`https://api.weibo.com/oauth2/authorize?client_id=456805882&response_type=code&state=` + socket.id + `&redirect_uri=http://www.fuqihan.cn/node/login/getWeiboAccessToken`)
+        this.outhHtml = window.open(`https://api.weibo.com/oauth2/authorize?client_id=456805882&response_type=code&state=123&redirect_uri=http://www.fuqihan.cn/node/login/getWeiboAccessToken`)
         this.show = true
       },
       onBaidu() {
@@ -82,7 +82,7 @@
           '\tclient_id=8zEhM2TlYGTD273GDVlFiwd0\n' +
           '&redirect_uri=http://www.fuqihan.cn/node/login/getBaiduAccessToken&\n' +
           '\tscope=basic&\n' +
-          '\tdisplay=popup&state=' + socket.id)
+          '\tdisplay=popup&state=123')
         this.show = true
       },
       onLogin() {

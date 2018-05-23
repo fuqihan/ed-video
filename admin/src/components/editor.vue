@@ -36,12 +36,8 @@
 import lrz from "lrz";
 import * as util from "../config/util";
 import api from "../api/index";
-import VueQuillEditor from "vue-quill-editor";
 
 export default {
-  components: {
-    quillEditor: VueQuillEditor
-  },
   props: ["editorContent", "editorContent", "visible"],
   data() {
     return {

@@ -80,7 +80,7 @@
         rules: {
           name: [
             {required: true, message: '请输入课程名', trigger: 'blur'},
-            {min: 2, max: 12, message: '长度在 2 到 12 个字符', trigger: 'blur'}
+            {min: 2, max: 100, message: '长度在 2 到 50 个字符', trigger: 'blur'}
           ],
           author: [
             {required: true, message: '请选择作者', trigger: 'blur'}
@@ -154,6 +154,7 @@
             let fd = new FormData()
             fd.append("file", blob, 'image.blob')
             api.upload.adminUpload(fd).then(data => {
+              console.log(data)
               _selt.form.imageUrl = data.data.data.replace(/\\/g, "/")
               _selt.form.upload = util.localhostImgUrl + data.data.data.replace(/\\/g, "/")
             })

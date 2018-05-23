@@ -6,8 +6,10 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import echarts from 'echarts'
+import VueQuillEditor from 'vue-quill-editor'
 
 Vue.use(ElementUI)
+Vue.use(VueQuillEditor)
 Vue.prototype.$echarts = echarts
 
 Vue.config.productionTip = false

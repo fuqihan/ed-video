@@ -37,7 +37,7 @@
     data() {
       return {
         todoText: '',
-        todoUrl: 'http://edvideo-1252875234.cosbj.myqcloud.com/7993821.mp4',
+        todoUrl: 'http://ed-video-1252875234.file.myqcloud.com/m1424uaq0ls.10703.1.mp4',
         todoList: [],
         todoChildList: [],
         activeStyle: {

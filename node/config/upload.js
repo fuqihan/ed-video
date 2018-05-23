@@ -60,6 +60,7 @@ module.exports = {
         var type = req.body.imageUrl.substring(ldot + 1);
         var filename = req.body.imageUrl.substring(16, ldot - 1);
         var new_path = "images/" + req.uploadUrl + "/" + filename + '.' + type;
+        console.log(config.AppId)
         // 七牛上传
         try {
             formUploader.putFile(uploadToken, new_path, 'public' + req.body.imageUrl, putExtra, function (respErr,
