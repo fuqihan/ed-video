@@ -132,14 +132,14 @@ const router = new Router({
   routes
 })
 
-// router.beforeEach((to, from, next) => {
-//   if (!store.state.loginInfo) {
-//     if (to.name === 'person') {
-//       store.commit('LOGIN_BEFORE', to.name)
-//       next({path: '/login'})
-//     }
-//   }
-//   next()
-// })
+router.beforeEach((to, from, next) => {
+  if (!store.state.loginInfo) {
+    if (to.name === 'person') {
+      store.commit('LOGIN_BEFORE', to.name)
+      next({path: '/login'})
+    }
+  }
+  next()
+})
 
 export default router
