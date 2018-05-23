@@ -71,6 +71,7 @@
       if (util.getCookie('WeiboAccessToken')) {
         api.login.weiboFindUserInfo(util.getCookie('WeiboAccessToken'), util.getCookie('WeiboUid'))
           .then(data => {
+            console.log(data)
             this.loginInfo = {
               name: data.data.data.name,
               imageUrl: data.data.data.profile_image_url,

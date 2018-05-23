@@ -6,7 +6,7 @@
     <div @click="aaa(item)" v-for="(item,index) in courseLists.child" :key="index" class="detail-course-list-child">
       <span class="index">{{'0'+(index +1)}}</span>
       <span class="name">{{item.name}}</span>
-      <span class="time">3:00</span>
+      <!-- <span class="time">3:00</span> -->
     </div>
   </div>
 </template>
@@ -34,6 +34,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 10px 0;
     .detail-course-list-master {
       width: 100%;
       height: .5rem;

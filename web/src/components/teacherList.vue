@@ -80,6 +80,7 @@
     .teacher-list-avatar {
       width: 1.6rem;
       height: 1.6rem;
+      border-radius: 50%;
       position: absolute;
       top: .2rem;
       right: .2rem;

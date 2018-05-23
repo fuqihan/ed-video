@@ -1,7 +1,7 @@
 <template>
   <div class="detail-teacher">
     <div class="detail-teacher-avatar">
-      <span class="back" @click="$router.go(-1)"> < </span>
+      <span class="back" @click="$router.push('/index')"> < </span>
       <img class="avatar" :src="msg.imageUrl" alt="">
       <span class="name">{{msg.name}}</span>
     </div>
@@ -12,7 +12,7 @@
     <div class="detail-teacher-course">
       <span class="name">课程</span>
       <div class="list">
-        <course-list :key="item" v-for="item in 10"></course-list>
+        <course-list :item="item" :key="index" v-for="(item, index) in courseLists"></course-list>
       </div>
     </div>
   </div>
@@ -30,14 +30,15 @@
     },
     data() {
       return {
-        msg: {}
+        msg: {},
+        courseLists: []
       }
     },
     mounted() {
       htmlBody.scrollTop = 0
       api.teacher.findTeacherId(base64.decode(this.$route.params.id)).then(data => {
         this.msg = data.data.data.data[0]
-        console.log(this.msg)
+        this.courseLists = data.data.item
       })
     }
   }

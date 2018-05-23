@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="detail-course-footer">
-      <span class="price">￥ 2400:00</span>
+      <span class="price">￥ {{coursesItem.price}}</span>
       <span class="people-number">已有20人学习</span>
       <div id="paypal-button" ref="paypalButton"></div>
 
