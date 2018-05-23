@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 var AppId = exports.AppId = '1252875234';
 var SecretId = exports.SecretId = 'AKID74RaT7KeXBZhZBdeV6SdYEfqrdASLKuF';
 var SecretKey = exports.SecretKey = 'FG2auynMgkY6PSHsEMFtIVTBftrZ1D9p';
-var cosUrl = exports.cosUrl ='http://edvideo-1252875234.cosbj.myqcloud.com/';
+var cosUrl = exports.cosUrl ='http://bitwork-1252875234.coscd.myqcloud.com/';
 // 七牛云
 var accessKey = exports.accessKey = 'UGHOM1opFSbd538_Ss4l0oMyrLN4bThchO6yusy1';
 var secretKey = exports.secretKey = 'BIDA540yoFlQJX4zCnpDbOQ1YTGGKkSqO8';

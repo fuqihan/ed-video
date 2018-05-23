@@ -63,23 +63,25 @@ module.exports = {
         console.log(config.AppId)
         // 七牛上传
         try {
-            formUploader.putFile(uploadToken, new_path, 'public' + req.body.imageUrl, putExtra, function (respErr,
-                                                                                                          respBody, respInfo) {
-                if (!respErr) {
-                    // 上传成功， 处理返回值
+            cos.sliceUploadFile({
+                Bucket: 'bitwork', /* 必须 */
+                Region: 'ap-chengdu', /* 必须 */
+                Key: new_path, /* 必须 */
+                FilePath: 'public' + req.body.imageUrl /* 必须 */
+            }, function (err, data) {
+                if (err) {
+                    res.json({
+                        ret: false,
+                        msg: err
+                    })
+                } else {
+                    console.log(data);
                     fs.unlink('public' + req.body.imageUrl, function () {
                         console.log('up1')
                         // 反馈上传信息
-                        req.body.imageUrl = config.qiniuUrl + new_path;
+                        req.body.imageUrl = config.cosUrl + new_path;
                         next();
                     });
-                } else {
-                    // 上传失败， 处理返回代码
-                    console.log(respErr);
-                    res.json({
-                        ret: false,
-                        msg: respErr
-                    })
                 }
             });
         } catch (err) {
@@ -93,6 +95,7 @@ module.exports = {
 
     },
     fsEditor: (req, res, next) => {
+        
         let s = req.body.editorContent.match(/<img.*?(?:>|\/>)/gi)
         if (s === null) {
             return next();
@@ -105,8 +108,12 @@ module.exports = {
                 var type = img.substring(ldot + 1);
                 var filename = img.substring(16, ldot);
                 var new_path = "images/" + 'editor' + "/" + filename + '.' + type;
-                formUploader.putFile(uploadToken, new_path, 'public' + img, putExtra, function (err,
-                                                                                                respBody, respInfo) {
+                cos.sliceUploadFile({
+                    Bucket: 'bitwork', /* 必须 */
+                    Region: 'ap-chengdu', /* 必须 */
+                    Key: new_path, /* 必须 */
+                    FilePath: 'public' + img /* 必须 */
+                }, function (err, data) {
                     if (err) {
                         console.log(err);
                         res.json({
@@ -117,7 +124,7 @@ module.exports = {
                         fs.unlink('public' + img, function () {
                             console.log('up2')
                             // 反馈上传信息
-                            req.body.editorContent = req.body.editorContent.replace(/(http\S*)\/uploads\/upload_/g, config.qiniuUrl + 'images/editor/')
+                            req.body.editorContent = req.body.editorContent.replace(/(http\S*)\/uploads\/upload_/g, config.cosUrl + 'images/editor/')
                             index === (s.length - 1) ? next() : 0
                         });
                     }
@@ -126,24 +133,3 @@ module.exports = {
         }
     }
 };
-// cos.sliceUploadFile({
-//     Bucket: 'edvideo', /* 必须 */
-//     Region: 'ap-beijing', /* 必须 */
-//     Key: new_path, /* 必须 */
-//     FilePath: 'public' + req.body.imageUrl /* 必须 */
-// }, function (err, data) {
-//     if (err) {
-//         res.json({
-//             ret: false,
-//             msg: err
-//           })
-//     } else {
-//         console.log(data);
-//         fs.unlink('public' + req.body.imageUrl, function () {
-//             console.log('up1')
-//             // 反馈上传信息
-//             req.body.imageUrl = config.cosUrl + new_path;
-//             next();
-//         });
-//     }
-// });
