@@ -25,3 +25,11 @@ export function addUser(obj) {
 export function findUser(obj) {
   return axios.get(util.locaUrl + 'user/user?username=' + obj.username + '&password=' + obj.password)
 }
+
+export function addBuy(id) {
+  return axios.post(util.locaUrl + 'person/addBuy', {courseid: id})
+}
+
+export function findBuy(id) {
+  return axios.post(util.locaUrl + 'person/findBuy', {courseid: id})
+}

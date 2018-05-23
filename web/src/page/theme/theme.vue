@@ -13,10 +13,10 @@ export default {
     data() {
         return {
             themeData: [
-                'http://ed-video-1252875234.file.myqcloud.com/5fe3515cd0e9edc8d5b1dbee2b600152.jpg',
-                'http://ed-video-1252875234.file.myqcloud.com/9e0fe5de536f24c2bead7e9e8a8585cc.jpg',
+                'http://ed-video-1252875234.coscd.myqcloud.com/5fe3515cd0e9edc8d5b1dbee2b600152.jpg',
+                'http://ed-video-1252875234.coscd.myqcloud.com/9e0fe5de536f24c2bead7e9e8a8585cc.jpg',
                 'http://ed-video-1252875234.coscd.myqcloud.com/03fc3690fd988dd6c99828997caaedca.jpg',
-                'http://ed-video-1252875234.file.myqcloud.com/7b68cc28cd8498a0776fa43d075704b2.jpg'
+                'http://ed-video-1252875234.coscd.myqcloud.com/7b68cc28cd8498a0776fa43d075704b2.jpg'
               ]
         }
     },

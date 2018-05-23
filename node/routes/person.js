@@ -17,6 +17,10 @@ router.get('/persons', personModel.findPersons)
 
 router.put('/person', personModel.updatePersoon)
 
+router.post('/addBuy', personModel.addBuy);
+
+router.post('/findBuy', personModel.findBuy);
+
 router.put('/updateActive', personModel.updateActive)
 
 

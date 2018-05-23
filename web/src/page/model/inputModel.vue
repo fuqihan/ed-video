@@ -32,7 +32,7 @@ export default {
     toSend() {
       let obj = {};
       obj.intro = this.value;
-      obj.person = "5adadde467701e2b509e21fe";
+      obj.person = "59e424d85eac9d02542a4004";
       this.$route.params.type === "talk"
         ? (obj.talk = this.$route.params.id)
         : (obj.course = base64.decode(

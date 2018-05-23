@@ -58,8 +58,8 @@
         height: '',
         homeFooter: true,
         listImg: [
-          {url: 'http://ed-video-1252875234.file.myqcloud.com/u%3D545486737%2C3677556190%26fm%3D27%26gp%3D0.jpg'},
-          {url: 'http://ed-video-1252875234.file.myqcloud.com/u%3D771633839%2C3160188155%26fm%3D200%26gp%3D0.jpg'}
+          {url: 'http://ed-video-1252875234.coscd.myqcloud.com/u%3D545486737%2C3677556190%26fm%3D27%26gp%3D0.jpg'},
+          {url: 'http://ed-video-1252875234.coscd.myqcloud.com/u%3D771633839%2C3160188155%26fm%3D200%26gp%3D0.jpg'}
         ],
         popularCourses: [],
         likeTeacher: Array,

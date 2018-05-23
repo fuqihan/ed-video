@@ -45,7 +45,7 @@ export default {
       obj.title = this.title;
       obj.intro = this.value;
       obj.classification = this.classification;
-      obj.person = "5adadde467701e2b509e21fe";
+      obj.person = "59e424d85eac9d02542a4004";
       api.talk.addTalk(obj).then(data => {
         this.$router.push("/index/community");
       });

@@ -79,7 +79,7 @@ export default {
             intro: "",
             editorContent: "",
             courseLists: [],
-            courseTalks: [],
+            courseTalks: []
           };
         }
       },
@@ -120,7 +120,7 @@ export default {
   },
   methods: {
     toBack() {
-      this.$router.push(this.$store.state.afterRouter)
+      this.$router.push(this.$store.state.afterRouter);
     },
     onScrollTop(id) {
       switch (id) {
@@ -246,10 +246,8 @@ export default {
         },
 
         payment: function(data, actions) {
-          if (!_that.$store.state.loginInfo) {
-            _that.$store.commit("LOGIN_BEFORE", _that.$route.path);
-            return _that.$router.push({ name: "login" });
-          } else {
+          api.user.findBuy(base64.decode(_that.$route.params.id)).then(data => {
+            if (data.data) return _that.$router.push({ name: "video" });
             return actions.payment.create({
               payment: {
                 transactions: [
@@ -259,16 +257,33 @@ export default {
                 ]
               }
             });
-          }
+          });
+          // if (!_that.$store.state.loginInfo) {
+          //   _that.$store.commit("LOGIN_BEFORE", _that.$route.path);
+          //   return _that.$router.push({ name: "login" });
+          // } else {
+          //   return actions.payment.create({
+          //     payment: {
+          //       transactions: [
+          //         {
+          //           amount: { total: "1.00", currency: "USD" }
+          //         }
+          //       ]
+          //     }
+          //   });
+          // }
         },
 
-        onCancel: function(data, actions) {
-          _that.$router.push({ name: "video" });
-        },
+        onCancel: function(data, actions) {},
 
         onAuthorize: function(data, actions) {
           return actions.payment.execute().then(payment => {
-            console.log(123);
+            api.user
+              .addBuy(base64.decode(_that.$route.params.id))
+              .then(data => {
+                console.log(data);
+                _that.$router.push({ name: "video" });
+              });
             // The payment is complete!
             // You can now show a confirmation message to the customer
             console.log(payment);
