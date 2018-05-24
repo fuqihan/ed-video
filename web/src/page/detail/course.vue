@@ -247,31 +247,23 @@ export default {
 
         payment: function(data, actions) {
           api.user.findBuy(base64.decode(_that.$route.params.id)).then(data => {
+            console.log(data.data);
             if (data.data) return _that.$router.push({ name: "video" });
-            return actions.payment.create({
-              payment: {
-                transactions: [
-                  {
-                    amount: { total: "1.00", currency: "USD" }
-                  }
-                ]
-              }
-            });
+            if (!_that.$store.state.loginInfo) {
+              _that.$store.commit("LOGIN_BEFORE", _that.$route.path);
+              return _that.$router.push({ name: "login" });
+            } else {
+              return actions.payment.create({
+                payment: {
+                  transactions: [
+                    {
+                      amount: { total: "1.00", currency: "USD" }
+                    }
+                  ]
+                }
+              });
+            }
           });
-          // if (!_that.$store.state.loginInfo) {
-          //   _that.$store.commit("LOGIN_BEFORE", _that.$route.path);
-          //   return _that.$router.push({ name: "login" });
-          // } else {
-          //   return actions.payment.create({
-          //     payment: {
-          //       transactions: [
-          //         {
-          //           amount: { total: "1.00", currency: "USD" }
-          //         }
-          //       ]
-          //     }
-          //   });
-          // }
         },
 
         onCancel: function(data, actions) {},

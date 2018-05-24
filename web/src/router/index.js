@@ -135,8 +135,8 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   if (!store.state.loginInfo) {
     if (to.name === 'person') {
-      store.commit('LOGIN_BEFORE', to.name)
-      next({path: '/login'})
+      store.commit('LOGIN_BEFORE', '/index/person')
+      next({ path: '/login' })
     }
   }
   next()

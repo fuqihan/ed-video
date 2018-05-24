@@ -62,7 +62,7 @@
     }
     .teacher-list-info {
       display: block;
-      width: 70%;
+      width: 50%;
       height: 1rem;
       font-size: 12px;
       color: #3f3f3f;

@@ -10,11 +10,11 @@
     <div class="search-model" v-show="!this.searchEnter"
          :style="{minHeight: searchModelHeight}">
       <span class="search-model-title">热门搜索</span>
-      <div class="search-model-list">
+      <!-- <div class="search-model-list">
         <div class="list" :key="item.name" v-for="item in classifi">{{item.name}}</div>
-      </div>
+      </div> -->
       <!-- <div class="search-model-list-before">查看更多...</div> -->
-      <span class="search-model-title">搜索历史</span>
+      <!-- <span class="search-model-title">搜索历史</span> -->
       <!-- <div class="search-model-list">
         <div class="list" v-for="item in 10">anguaalar</div>
       </div> -->

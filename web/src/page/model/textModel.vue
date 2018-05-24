@@ -22,8 +22,8 @@ export default {
   min-height: 100vh;
   font-size: 25px;
   .text {
-    margin-top: 15px;
-    margin-left: 10px;
+    margin-top: .4rem;
+    margin-left: .6rem;
   }
 }
 .f-home-theme-header-icon {

@@ -102,7 +102,7 @@ module.exports = {
         })
     },
     homeFindLikeTeacher: (req, res, next) => {
-        teachers.find().limit(6).exec().then(data => {
+        teachers.find().limit(3).exec().then(data => {
             if (data.length === 0) {
                 res.json({
                     ret: false

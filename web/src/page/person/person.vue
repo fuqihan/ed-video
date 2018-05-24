@@ -24,13 +24,13 @@
     <div class="person-center" ref="personCenter"
          :style="personHeaderOff?personCenterStyle[0]:personCenterStyle[1]">
       <div class="person-center-record">
-        <div class="person-center-record-list" v-for="item in 5">
-          <span>1000</span>
-          <span>开心值</span>
+        <div class="person-center-record-list" :key="index" v-for="(item, index) in ['被关注', '开心值', '购买数', '帖子数']">
+          <span>10</span>
+          <span>{{item}}</span>
         </div>
       </div>
       <div class="person-center-item">
-        <div class="person-center-item-list" v-for="item in ['浏览记录','练习记录','签到','不开心','不开心','不开心','个人设置','私信']">
+        <div class="person-center-item-list" :key="index" v-for="(item, index) in ['浏览记录','个人资料','签到','我的课程','发表帖子','回答问题','个人设置','私信']">
           <span class="name">{{item}}</span>
           <span class="next"> > </span>
         </div>
@@ -187,7 +187,7 @@
         display: flex;
         justify-content: flex-start;
         .person-center-record-list {
-          width: 20%;
+          width: 25%;
           font-size: 12px;
           display: flex;
           justify-content: center;

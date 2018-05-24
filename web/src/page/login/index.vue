@@ -58,11 +58,11 @@ export default {
         : "index";
     if (util.getCookie("WeiboAccessToken")) {
       this.$store.commit("LOGIN_INFO", true);
-      this.$router.push({ name: name });
+      this.$router.push({ path: name });
     } else {
       if (util.getCookie("BaiduAccessToken")) {
         this.$store.commit("LOGIN_INFO", true);
-        this.$router.push({ name: name });
+        this.$router.push({ path: name });
       } else {
         this.loginShow = true;
       }
@@ -97,6 +97,7 @@ export default {
       this.$router.push({ name: "login" });
     },
     onConfirm() {
+      console.log(this.$store.state.loginBefore)
       localStorage.setItem("edVideoLoginBefore", this.$store.state.loginBefore);
       this.$router.go(0);
     },
