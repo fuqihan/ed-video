@@ -6,9 +6,9 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { VueLoaderPlugin } = require('vue-loader');
 var env = config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
@@ -35,9 +35,10 @@ var webpackConfig = merge(baseWebpackConfig, {
       },
       sourceMap: true
     }),
+    new VueLoaderPlugin(),
     // extract css into its own file
-    new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash].css')
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash].css'
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
